@@ -172,8 +172,8 @@ enum
 	[dir length] ? [requestAppend addObject:[NSString stringWithFormat:@"dir_edit=%@", [dir stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]] : nil;
 	[label length] ? [requestAppend addObject:[NSString stringWithFormat:@"label=%@", [label stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]] : nil;
 
-	NSURL * url = [[NSURL URLWithString:self.getAppendedURL] URLByAppendingPathComponent:[@"php/addtorrent.php?" stringByAppendingString:[requestAppend componentsJoinedByString:@"&"]]];
-
+    NSURL * url = [NSURL URLWithString:[@"php/addtorrent.php?" stringByAppendingString:[requestAppend componentsJoinedByString:@"&"]] relativeToURL:[NSURL URLWithString:self.getAppendedURL]];
+    
 	NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
 	[request setHTTPMethod:@"POST"];
 
