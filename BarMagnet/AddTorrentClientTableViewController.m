@@ -96,7 +96,7 @@
 	[self cell:self.portCell setHidden:[torrentDelegate isEqual:SeedStuffSeedbox.class]];
 	[self cell:self.useSSLCell setHidden:[torrentDelegate isEqual:SeedStuffSeedbox.class]];
 	[self cell:self.seedStuffCell setHidden:![torrentDelegate isEqual:SeedStuffSeedbox.class]];
-	[self cell:self.labelCell setHidden:![torrentDelegate isEqual:ruTorrent.class]];
+	[self cell:self.labelCell setHidden:![torrentDelegate supportsLabels]];
 	[self cell:self.directoryCell setHidden:![torrentDelegate supportsDirectoryChoice]];
 	[self cell:self.relativePathCell setHidden:![torrentDelegate supportsRelativePath]];
 	[self reloadDataAnimated:YES];
